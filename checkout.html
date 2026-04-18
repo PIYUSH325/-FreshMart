@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreshMart - Checkout</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo" onclick="window.location.href='index.html'">
+                <span class="logo-icon">🥬</span>
+                <span class="logo-text">FreshMart</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#products">Products</a></li>
+            </ul>
+            <div class="cart-icon" onclick="window.location.href='index.html'">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count" id="cartCountCheckout">0</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Checkout Content -->
+    <main class="checkout-main">
+        <div class="container">
+            <div class="checkout-header fade-in-up">
+                <h1><i class="fas fa-credit-card"></i> Checkout</h1>
+                <p>Review your order and complete payment</p>
+            </div>
+
+            <div class="checkout-layout">
+                <!-- Left Column - Forms -->
+                <div class="checkout-forms-container">
+                    <!-- Customer Info Card -->
+                    <div class="checkout-card fade-in-left">
+                        <h2><i class="fas fa-user"></i> Customer Information</h2>
+                        <div class="checkout-field">
+                            <label>Full Name</label>
+                            <input type="text" id="checkoutName" placeholder="Enter your full name">
+                        </div>
+                        <div class="checkout-field-row">
+                            <div class="checkout-field">
+                                <label>Email</label>
+                                <input type="email" id="checkoutEmail" placeholder="your@email.com">
+                            </div>
+                            <div class="checkout-field">
+                                <label>Phone</label>
+                                <input type="tel" id="checkoutPhone" placeholder="+1 (555) 123-4567">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Delivery Address Card -->
+                    <div class="checkout-card fade-in-left">
+                        <h2><i class="fas fa-map-marker-alt"></i> Delivery Address</h2>
+                        <div class="address-grid">
+                            <div class="checkout-field">
+                                <label>House/Flat No</label>
+                                <input type="text" id="houseNo" placeholder="123" required>
+                            </div>
+                            <div class="checkout-field">
+                                <label>Street</label>
+                                <input type="text" id="street" placeholder="Main Street" required>
+                            </div>
+                            <div class="checkout-field">
+                                <label>City</label>
+                                <input type="text" id="city" placeholder="New York" required>
+                            </div>
+                            <div class="checkout-field">
+                                <label>State</label>
+                                <input type="text" id="state" placeholder="NY" required>
+                            </div>
+                            <div class="checkout-field">
+                                <label>ZIP Code</label>
+                                <input type="text" id="pincode" placeholder="10001" required>
+                            </div>
+                            <div class="checkout-field">
+                                <label>Landmark (Optional)</label>
+                                <input type="text" id="landmark" placeholder="Near XYZ Mall">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Delivery Options -->
+                    <div class="checkout-card fade-in-left">
+                        <h2><i class="fas fa-truck"></i> Delivery Method</h2>
+                        <div class="delivery-options">
+                            <label class="delivery-option active">
+                                <div class="delivery-icon">
+                                    <i class="fas fa-shipping-fast"></i>
+                                </div>
+                                <div class="delivery-info">
+                                    <div class="delivery-title">Standard Delivery</div>
+                                    <div class="delivery-details">60 Minutes • <strong>FREE</strong></div>
+                                </div>
+                                <input type="radio" name="delivery" value="standard" checked style="display:none;">
+                            </label>
+                            <label class="delivery-option">
+                                <div class="delivery-icon">
+                                    <i class="fas fa-bolt"></i>
+                                </div>
+                                <div class="delivery-info">
+                                    <div class="delivery-title">Express Delivery</div>
+                                    <div class="delivery-details">30 Minutes • <strong>$5.99</strong></div>
+                                </div>
+                                <input type="radio" name="delivery" value="express" style="display:none;">
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Payment Method -->
+                    <div class="checkout-card fade-in-left">
+                        <h2><i class="fas fa-credit-card"></i> Payment Method</h2>
+                        <div class="payment-options">
+                            <label class="payment-option active">
+                                <div class="payment-icon">
+                                    <i class="fas fa-money-bill-wave"></i>
+                                </div>
+                                Cash on Delivery
+                                <input type="radio" name="payment" value="cod" checked style="display:none;">
+                            </label>
+                            <label class="payment-option">
+                                <div class="payment-icon">
+                                    <i class="fab fa-cc-visa"></i>
+                                </div>
+                                Credit/Debit Card
+                                <input type="radio" name="payment" value="card" style="display:none;">
+                            </label>
+                            <label class="payment-option">
+                                <div class="payment-icon">
+                                    <i class="fas fa-mobile-alt"></i>
+                                </div>
+                                UPI / Wallet
+                                <input type="radio" name="payment" value="upi" style="display:none;">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column - Order Summary (Sticky) -->
+                <div class="checkout-summary-container">
+                    <div class="checkout-summary-card sticky">
+                        <div class="summary-header">
+                            <h2><i class="fas fa-receipt"></i> Order Summary</h2>
+                            <div class="summary-item-count" id="itemCount">0 items</div>
+                        </div>
+                        
+                        <div class="summary-items" id="checkoutCartItems">
+                            Loading...
+                        </div>
+
+                        <div class="summary-totals">
+                            <div class="summary-row">
+                                <span>Subtotal:</span>
+                                <span id="checkoutSubtotal">$0.00</span>
+                            </div>
+                            <div class="summary-row delivery-row" style="display: none;">
+                                <span>Delivery:</span>
+                                <span id="deliveryFee">$0.00</span>
+                            </div>
+                            <div class="summary-total-row">
+                                <span>Total:</span>
+                                <span id="checkoutGrandTotal">$0.00</span>
+                            </div>
+                        </div>
+
+                        <button class="place-order-btn" onclick="placeOrder()">
+                            <i class="fas fa-lock"></i>
+                            Place Order - <span id="finalTotal">$0.00</span>
+                        </button>
+
+                        <div class="secure-checkout">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Secure Checkout</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Load cart and user data
+        const cart = JSON.parse(localStorage.getItem('freshmart_cart') || '[]');
+        const user = JSON.parse(localStorage.getItem('freshmart_user') || '{}');
+
+        // Pre-fill user info if logged in
+        if (user.loggedIn) {
+            document.getElementById('checkoutName').value = user.name || '';
+            document.getElementById('checkoutEmail').value = user.email || '';
+        }
+
+        // Initialize checkout
+        function initCheckout() {
+            updateCartSummary();
+            setupEventListeners();
+            updateCartCount();
+        }
+
+        function updateCartSummary() {
+            if (cart.length === 0) {
+                document.getElementById('checkoutCartItems').innerHTML = '<div class="empty-cart">Your cart is empty</div>';
+                document.querySelector('.checkout-summary-card').style.display = 'none';
+                return;
+            }
+
+            document.querySelector('.checkout-summary-card').style.display = 'block';
+            const subtotal = cart.reduce((sum, item) => sum + (parseFloat(item.price) * item.quantity), 0);
+            
+            document.getElementById('itemCount').textContent = cart.reduce((sum, item) => sum + item.quantity, 0) + ' items';
+            document.getElementById('checkoutSubtotal').textContent = '$' + subtotal.toFixed(2);
+            document.getElementById('finalTotal').textContent = '$' + subtotal.toFixed(2);
+            document.getElementById('checkoutGrandTotal').textContent = '$' + subtotal.toFixed(2);
+            
+            document.getElementById('checkoutCartItems').innerHTML = cart.map(item => `
+                <div class="summary-item">
+                    <div class="item-info">
+                        <span class="item-emoji">${item.image}</span>
+                        <span class="item-name">${item.name}</span>
+                    </div>
+                    <div class="item-price">
+                        ${item.quantity}x $${item.price.toFixed(2)}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function setupEventListeners() {
+            // Delivery options
+            document.querySelectorAll('input[name="delivery"]').forEach(radio => {
+                radio.addEventListener('change', updateTotals);
+            });
+
+            // Payment options
+            document.querySelectorAll('input[name="payment"]').forEach(radio => {
+                radio.addEventListener('change', (e) => {
+                    // Handle card details if needed
+                });
+            });
+
+            // Update totals on delivery change
+            function updateTotals() {
+                const deliveryRadio = document.querySelector('input[name="delivery"]:checked');
+                const subtotal = parseFloat(document.getElementById('checkoutSubtotal').textContent.replace('$', ''));
+                let deliveryFee = 0;
+                
+                if (deliveryRadio && deliveryRadio.value === 'express') {
+                    deliveryFee = 5.99;
+                    document.querySelector('.delivery-row').style.display = 'flex';
+                    document.getElementById('deliveryFee').textContent = '$' + deliveryFee.toFixed(2);
+                } else {
+                    document.querySelector('.delivery-row').style.display = 'none';
+                }
+                
+                const grandTotal = subtotal + deliveryFee;
+                document.getElementById('checkoutGrandTotal').textContent = '$' + grandTotal.toFixed(2);
+                document.getElementById('finalTotal').textContent = '$' + grandTotal.toFixed(2);
+            }
+        }
+
+        function updateCartCount() {
+            document.getElementById('cartCountCheckout').textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+        }
+
+        function placeOrder() {
+            // Basic validation
+            const required = ['checkoutName', 'checkoutEmail', 'checkoutPhone', 'houseNo', 'street', 'city', 'state', 'pincode'];
+            const allFilled = required.every(id => document.getElementById(id).value.trim());
+            
+            if (!allFilled) {
+                alert('Please fill all required fields');
+                return;
+            }
+
+            if (cart.length === 0) {
+                alert('Your cart is empty!');
+                return;
+            }
+
+            // Create order data
+            const orderData = {
+                cart,
+                customer: {
+                    name: document.getElementById('checkoutName').value,
+                    email: document.getElementById('checkoutEmail').value,
+                    phone: document.getElementById('checkoutPhone').value
+                },
+                address: {
+                    houseNo: document.getElementById('houseNo').value,
+                    street: document.getElementById('street').value,
+                    city: document.getElementById('city').value,
+                    state: document.getElementById('state').value,
+                    pincode: document.getElementById('pincode').value
+                },
+                delivery: document.querySelector('input[name="delivery"]:checked').value,
+                payment: document.querySelector('input[name="payment"]:checked').value,
+                orderId: 'FM' + Date.now().toString().slice(-6)
+            };
+
+            localStorage.setItem('freshmart_order', JSON.stringify(orderData));
+            localStorage.removeItem('freshmart_cart'); // Clear cart after order
+
+            window.location.href = 'confirmation.html';
+        }
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            document.querySelector('.navbar').classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', initCheckout);
+    </script>
+</body>
+</html>
+

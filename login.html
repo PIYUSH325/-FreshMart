@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreshMart - Login / Sign Up</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">🥬</span>
+                <span class="logo-text">FreshMart</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#products">Products</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <div class="cart-icon" onclick="window.location.href='index.html#products'">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count" id="cartCountLogin">0</span>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Login Hero -->
+    <section class="login-hero">
+        <div class="container">
+            <div class="login-wrapper fade-in-up">
+                <div class="login-card">
+                    <div class="login-header">
+                        <h1>Welcome Back</h1>
+                        <p>Sign in to your account to continue shopping</p>
+                    </div>
+                    <form class="login-form" id="authForm">
+                        <div class="form-group">
+                            <input type="text" id="userName" placeholder=" " required>
+                            <label for="userName">Full Name</label>
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="userEmail" placeholder=" " required>
+                            <label for="userEmail">Email</label>
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" id="userPassword" placeholder=" " required>
+                            <label for="userPassword">Password</label>
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <div class="form-options">
+<label class="remember-me">
+                                <input type="checkbox" id="rememberMe">
+                                Remember me
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-primary full-width">
+                            <span id="btnText">Sign In</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                        <div class="divider">
+                            <span>or</span>
+                        </div>
+                        <button type="button" class="btn btn-secondary full-width guest-checkout" onclick="guestCheckout()">
+                            Continue as Guest
+                        </button>
+                    </form>
+                    <div class="login-footer">
+                        <p>Demo credentials: test@example.com / password123</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Load cart count
+        const cart = JSON.parse(localStorage.getItem('freshmart_cart') || '[]');
+        document.getElementById('cartCountLogin').textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+
+        // Auth form
+        document.getElementById('authForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('userName').value;
+            const email = document.getElementById('userEmail').value;
+            const password = document.getElementById('userPassword').value;
+
+            // Demo validation
+            if (email && password && name) {
+                localStorage.setItem('freshmart_user', JSON.stringify({name, email, loggedIn: true}));
+                window.location.href = 'checkout.html';
+            } else {
+                alert('Please fill all fields');
+            }
+        });
+
+        function guestCheckout() {
+            localStorage.setItem('freshmart_user', JSON.stringify({name: 'Guest', email: 'guest@example.com', loggedIn: true}));
+            window.location.href = 'checkout.html';
+        }
+
+        // Navbar scroll
+        window.addEventListener('scroll', () => {
+            document.querySelector('.navbar').classList.toggle('scrolled', window.scrollY > 50);
+        });
+    </script>
+</body>
+</html>
