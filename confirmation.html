@@ -3,157 +3,312 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FreshMart - Order Confirmed</title>
+    <title>FreshMart - Order Successful</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WDGT4JTSWL"></script>
-    <script>
-     window.dataLayer = window.dataLayer || [];
-     function gtag(){dataLayer.push(arguments);}
-     gtag('js', new Date());
-
-     gtag('config', 'G-WDGT4JTSWL');
-    </script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1884473921151713"
-     crossorigin="anonymous"></script>
-     <meta name="google-adsense-account" content="ca-pub-1884473921151713">
 </head>
 <body>
-    <!-- Navigation -->
+    <!-- Simple Navbar -->
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo" onclick="window.location.href='index.html'">
                 <span class="logo-icon">🥬</span>
                 <span class="logo-text">FreshMart</span>
             </div>
-            <ul class="nav-links">
-                <li><a href="index.html#home">Home</a></li>
-                <li><a href="index.html#products">Products</a></li>
-            </ul>
-            <div class="cart-icon" onclick="window.location.href='index.html'">
-                <i class="fas fa-shopping-cart"></i>
-                <span class="cart-count">0</span>
-            </div>
         </div>
     </nav>
 
-    <!-- Confirmation Hero -->
-    <section class="confirmation-hero">
-        <div class="container">
-            <div class="confirmation-content fade-in-up">
-                <div class="confirmation-icon bounce-in">
-                    <i class="fas fa-check-circle" style="font-size: 6rem; color: var(--primary-color);"></i>
-                </div>
-                <h1 class="confirmation-title">Order Confirmed!</h1>
-                <p class="confirmation-subtitle">Thank you for your purchase. Your order has been placed successfully.</p>
-                
-                <div class="confirmation-details">
-                    <div class="detail-card">
-                        <div class="detail-icon">
-                            <i class="fas fa-hashtag"></i>
-                        </div>
-                        <div class="detail-content">
-                            <h3>Order ID</h3>
-                            <p id="orderId">#FM123456</p>
-                        </div>
-                    </div>
-                    <div class="detail-card">
-                        <div class="detail-icon">
-                            <i class="fas fa-calendar-day"></i>
-                        </div>
-                        <div class="detail-content">
-                            <h3>Estimated Delivery</h3>
-                            <p id="deliveryDate">3-5 days</p>
-                        </div>
-                    </div>
-                    <div class="detail-card">
-                        <div class="detail-icon">
-                            <i class="fas fa-receipt"></i>
-                        </div>
-                        <div class="detail-content">
-                            <h3>Order Summary</h3>
-                            <p id="orderTotal">Loading...</p>
-                        </div>
-                    </div>
-                </div>
+    <!-- Confirmation Page - Centered Card -->
+    <section class="confirmation-page">
+        <div class="success-card">
+            <!-- Success Icon -->
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
 
-                <div class="order-items" id="confirmedItems">
-                    <h3>Your Items</h3>
-                    <p>Loading order...</p>
-                </div>
+            <!-- Main Message -->
+            <h1 class="success-title">Order Placed Successfully!</h1>
+            <p class="success-subtitle">Thank you for shopping with FreshMart</p>
+            <p class="happy-shopping">Happy Shopping!</p>
 
-                <div class="confirmation-actions">
-                    <a href="index.html" class="btn btn-primary">
-                        Continue Shopping <i class="fas fa-shopping-bag"></i>
-                    </a>
-                    <button class="btn btn-secondary" onclick="printOrder()">
-                        Print Order <i class="fas fa-print"></i>
-                    </button>
+            <!-- Order Details -->
+            <div class="order-details">
+                <div class="detail-item">
+                    <span class="detail-label">Order ID:</span>
+                    <span class="detail-value" id="orderId">#FM-ORDER-789</span>
                 </div>
+                <div class="detail-item">
+                    <span class="detail-label">Estimated Delivery:</span>
+                    <span class="detail-value">2-3 days</span>
+                </div>
+                <div class="detail-item total">
+                    <span class="detail-label">Total Paid:</span>
+                    <span class="detail-value" id="orderTotal">$89.50</span>
+                </div>
+            </div>
 
-                <div class="confirmation-support">
-                    <p><i class="fas fa-headset"></i> Need help? Contact support at <a href="mailto:support@freshmart.com">support@freshmart.com</a></p>
-                </div>
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+                <a href="index.html" class="btn btn-primary">
+                    <i class="fas fa-shopping-bag"></i> Continue Shopping
+                </a>
+                <button class="btn btn-secondary track-btn" onclick="trackOrder()">
+                    <i class="fas fa-map-marker-alt"></i> Track Order
+                </button>
+            </div>
+
+            <!-- Support -->
+            <div class="support-info">
+                <i class="fas fa-phone"></i>
+                <span>Questions? Call <a href="tel:+919154631321">+91 91546 31321</a></span>
             </div>
         </div>
     </section>
 
+    <style>
+        /* Confirmation Page Specific Styles - Isolated */
+        .confirmation-page {
+            min-height: calc(100vh - 80px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e8f5e9 50%);
+            position: relative;
+            z-index: 1;
+        }
+
+        .success-card {
+            background: white;
+            border-radius: 24px;
+            padding: 60px 40px;
+            box-shadow: 0 25px 80px rgba(0,0,0,0.12);
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .success-icon {
+            margin-bottom: 30px;
+        }
+
+        .success-icon i {
+            font-size: 5rem;
+            color: #2ecc71;
+            animation: bounceIn 0.8s ease;
+        }
+
+        .success-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 12px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .success-subtitle {
+            font-size: 1.3rem;
+            color: #7f8c8d;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .happy-shopping {
+            font-size: 1.1rem;
+            color: #2ecc71;
+            font-weight: 600;
+            margin-bottom: 40px;
+        }
+
+        .order-details {
+            background: #f8f9fa;
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 40px;
+            text-align: left;
+        }
+
+        .detail-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .detail-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .detail-label {
+            font-weight: 500;
+            color: #2c3e50;
+            font-size: 0.95rem;
+        }
+
+        .detail-value {
+            font-weight: 700;
+            color: #2ecc71;
+            font-size: 1.1rem;
+        }
+
+        .detail-item.total .detail-value {
+            font-size: 1.4rem;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: #2ecc71;
+            color: white;
+            box-shadow: 0 8px 25px rgba(46,204,113,0.3);
+        }
+
+        .btn-primary:hover {
+            background: #27ae60;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 35px rgba(46,204,113,0.4);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #2c3e50;
+            border: 2px solid #ddd;
+        }
+
+        .btn-secondary:hover {
+            background: #f8f9fa;
+            border-color: #2ecc71;
+            color: #2ecc71;
+        }
+
+        .track-btn {
+            min-width: 180px;
+        }
+
+        .support-info {
+            color: #7f8c8d;
+            font-size: 0.95rem;
+        }
+
+        .support-info a {
+            color: #2ecc71;
+            text-decoration: none;
+        }
+
+        .support-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .confirmation-page {
+                padding: 20px 15px;
+            }
+
+            .success-card {
+                padding: 40px 25px;
+                margin: 20px;
+            }
+
+            .success-title {
+                font-size: 2rem;
+            }
+
+            .success-icon i {
+                font-size: 4rem;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* Navbar Override for Confirmation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            background: white;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #2ecc71;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            font-size: 2rem;
+        }
+    </style>
+
     <script>
-        // Load order data
-        const orderData = JSON.parse(localStorage.getItem('freshmart_order') || '{}');
-
-        if (!orderData || !orderData.cart || orderData.cart.length === 0) {
-            window.location.href = 'index.html';
-            return;
-        }
-
-        // Generate order ID if not present
-        if (!orderData.orderId) {
-            orderData.orderId = 'FM' + Math.floor(Math.random() * 100000);
-            localStorage.setItem('freshmart_order', JSON.stringify(orderData));
-        }
-
-        // Set details
-        document.getElementById('orderId').textContent = orderData.orderId;
-        const total = orderData.cart.reduce((sum, item) => sum + (parseFloat(item.price) * item.quantity), 0).toFixed(2);
-        document.getElementById('orderTotal').textContent = `$${total}`;
-        document.getElementById('deliveryDate').textContent = '3-5 days';
-
-        // Show items
-        document.getElementById('confirmedItems').innerHTML = `
-            <h3>Your Items</h3>
-            ${orderData.cart.map(item => `
-                <div class="confirmed-item">
-                    <div class="item-info">
-                        <span class="item-emoji">${item.image}</span>
-                        <span>${item.name}</span>
-                    </div>
-                    <span class="item-qty">${item.quantity}x</span>
-                    <span class="item-price">$${item.price.toFixed(2)}</span>
-                </div>
-            `).join('')}
-            <div class="confirmed-total">
-                <strong>Total: $${total}</strong>
-            </div>
-        `;
-
-        // Print function
-        function printOrder() {
-            window.print();
-        }
-
-        // Navbar scroll
-        window.addEventListener('scroll', () => {
-            document.querySelector('.navbar').classList.toggle('scrolled', window.scrollY > 50);
+        // Generate fake order details
+        document.addEventListener('DOMContentLoaded', () => {
+            const orderId = 'FM-ORDER-' + Math.floor(Math.random() * 1000000).toString().padStart(6, '0');
+            document.getElementById('orderId').textContent = '#' + orderId;
+            
+            // Fake total
+            document.getElementById('orderTotal').textContent = '$' + (Math.floor(Math.random() * 200) + 25).toFixed(2);
+            
+            // Clear cart
+            localStorage.removeItem('freshmart_cart');
+            localStorage.removeItem('freshmart_order');
         });
 
-        // Clear localStorage after 10 seconds (simulate order processing complete)
-        setTimeout(() => {
-            localStorage.removeItem('freshmart_order');
-        }, 10000);
+        function trackOrder() {
+            alert('Order tracking demo - Order shipped!');
+        }
     </script>
 </body>
 </html>
