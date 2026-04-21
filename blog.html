@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - FreshMart | Grocery Tips & Recipes</title>
+    <meta name="description" content="FreshMart Blog - Healthy grocery shopping tips, vegetable selection guide, meal planning, recipes, and nutrition advice.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">🥬</span>
+                <span class="logo-text">FreshMart</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#products">Products</a></li>
+                <li><a href="blog.html" class="active">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="privacy.html">Privacy</a></li>
+                <li><a href="terms.html">Terms</a></li>
+            </ul>
+            <div class="cart-nav-item">
+                <div class="cart-icon nav-item" id="cartIcon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </div>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Blog Hero -->
+    <section class="hero blog-hero">
+        <div class="hero-content">
+            <h1 class="hero-title">FreshMart<br><span class="highlight">Blog</span></h1>
+            <p class="hero-subtitle">Healthy eating tips, grocery guides, recipes, and nutrition advice from your favorite grocery store</p>
+        </div>
+    </section>
+
+    <!-- Featured Articles -->
+    <section class="featured-articles">
+        <div class="container">
+            <div class="section-header fade-in-up">
+                <span class="section-tag">Featured</span>
+                <h2 class="section-title">Latest Articles</h2>
+            </div>
+            <div class="blog-grid">
+                <article class="blog-card featured">
+                    <div class="blog-image">
+                        <span class="blog-emoji">🥗</span>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-date">January 15, 2024</span>
+                            <span class="blog-category">Nutrition</span>
+                        </div>
+                        <h3>Healthy Grocery Shopping Tips for Busy Families</h3>
+                        <p>Discover 12 practical strategies to shop smarter, save money, and build healthier meals without spending hours in the kitchen...</p>
+                        <a href="#article1" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <span class="blog-emoji">🥕</span>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-date">January 12, 2024</span>
+                            <span class="blog-category">Guides</span>
+                        </div>
+                        <h3>How to Choose Fresh Vegetables Like a Pro</h3>
+                        <p>Learn to identify ripe produce and avoid common mistakes that waste your money and compromise nutrition...</p>
+                        <a href="#article2" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <span class="blog-emoji">📅</span>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-date">January 10, 2024</span>
+                            <span class="blog-category">Planning</span>
+                        </div>
+                        <h3>Weekly Grocery Planning Guide for Better Health</h3>
+                        <p>Streamline your shopping with our 7-day meal plan template, seasonal produce guide, and budget tips...</p>
+                        <a href="#article3" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Full Article Previews (Blog Preview Content) -->
+    <section id="article1" class="article-preview">
+        <div class="container">
+            <div class="article-full">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwMCIgaGVpZ2h0PSI2MDAiIHZpZXdCb3g9IjAgMCAxMjAwIDYwMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjEyMDAiIGhlaWdodD0iNjAwIiBmaWxsPSIjQ0FFNkM5Ii8+CjxwYXRoIGQ9Ik0wIDYwMEw0MDAgMEw4MDAgNjAwTDExOTkgNjAwTDEyMDAgNTk5TDEyMDAgNjAwSDBWMzAwSDEyMDBWMjAwSDBWMTAwSDEy MDBWMHoiIGZpbGw9IiM5MkY3QkIiLz4KPHRleHQgeD0iNjAwIiB5PSIzMDAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSI0OCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkhlYWx0aHkgR3JvY2VyeSBTaG9wcGluZyBUaXBzPC90ZXh0Pgo8L3N2Zz4K" alt="Healthy Shopping">
+                <div class="article-content">
+                    <h2>12 Healthy Grocery Shopping Tips for Busy Families</h2>
+                    <p class="article-excerpt">Shopping for groceries can be overwhelming, especially when trying to maintain a healthy diet while managing a busy schedule. Here are our top tips...</p>
+                    <div class="article-stats">
+                        <span>10 min read</span>
+                        <span>Health & Nutrition</span>
+                        <span>1.5k views</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-brand">
+                        <div class="logo">
+                            <span class="logo-icon">🥬</span>
+                            <span class="logo-text">FreshMart</span>
+                        </div>
+                        <p>Healthy eating starts here.</p>
+                    </div>
+                    <div class="footer-links">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="index.html#home">Home</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="index.html#products">Shop</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links">
+                        <h4>Legal</h4>
+                        <ul>
+                            <li><a href="privacy.html">Privacy</a></li>
+                            <li><a href="terms.html">Terms</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2024 FreshMart Blog. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
